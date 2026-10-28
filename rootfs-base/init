@@ -1,0 +1,28 @@
+#!/bin/sh
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev
+
+# We cannot create the dir in the rootfs since an empty dir is not compressed
+mkdir /dev/pts
+mount -t devpts devpts /dev/pts
+
+source /etc/profile
+
+chown 0:0 /
+chown 0:0 -R /root
+chmod 0600 -R /root
+
+echo Fetching an IP address
+ip link set eth0 up
+udhcpc
+
+echo Starting telnet server
+telnetd -l /bin/sh
+
+echo Starting SSH server
+mkdir /etc/dropbear
+dropbear -BRE
+
+echo -e "Hello there\n"
+exec /bin/sh --login

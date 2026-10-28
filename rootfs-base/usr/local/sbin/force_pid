@@ -1,0 +1,7 @@
+#!/bin/sh
+
+pid=$1
+
+while [ $(cat /proc/sys/kernel/ns_last_pid) -lt $pid ]; do
+    : # we do nothing
+done

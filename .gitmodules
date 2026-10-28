@@ -1,0 +1,6 @@
+[submodule "busybox"]
+	path = busybox
+	url = git://busybox.net/busybox.git
+[submodule "dropbear"]
+	path = dropbear
+	url = git@github.com:mkj/dropbear.git
