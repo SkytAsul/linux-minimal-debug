@@ -105,10 +105,14 @@ Remote debugging using :1234
 (gdb)
 ```
 
-# Sources
+## Use in a Notebook
+If you intend to do the same experiment over and over (e.g. to trace specific things in the kernel), you might benefit from
+using a Jupyter Notebook. An example is given in [example_notebook.ipnyb](./example_notebook.ipynb).
+
+## Sources
 - https://nickdesaulniers.github.io/blog/2018/10/24/booting-a-custom-linux-kernel-in-qemu-and-debugging-it-with-gdb/
 - https://docs.kernel.org/admin-guide/quickly-build-trimmed-linux.html
 - https://www.techveda.live/2026/09/24/boot-linux-kernel-qemu-initramfs/ 
 
-# Similar repos
+## Similar repos
 I just found out about https://github.com/bluedragon1221/minlinux2. It is less automated but very detailed about the kernel and initramfs creation (also a bit better), you might want to take a look.
