@@ -68,8 +68,31 @@ qemu-system-amd64 \
 	-daemonize -display none
 ```
 
+In this case, the `qemu` call will return after the VM has started. You can see the logs in `/tmp/qemu.log`.
+
+To stop the VM, either connect to it (see below) or kill the qemu process:
+```sh
+pkill qemu-system-amd
+```
+
+## Connect to the VM
+### SSH
+```sh
+ssh root@localhost -p 2222 -o "StrictHostKeyChecking no"
+```
+We use `-o "StrictHostKeyChecking no"` since the host key will change everytime you'll reboot the VM.
+
+You can also use SSH to directly send commands and get results, allowing **easy automation**.
+
+### Telnet
+```sh
+telnet localhost 2223
+```
+
 ## Debug the VM
 You'd better find dedicated tutorials online.
+
+Necessary to begin (the first time it will probably ask you to do something with your gdb config file, do it):
 ```sh
 gdb "$linux_dir/vmlinux"
 GNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1
